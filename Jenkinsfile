@@ -8,7 +8,4 @@ node() {
     stage('Back-end') {
                 git url: "https://github.com/safirh/petclinic.git"
         }
-        stage('maven') {
-                sh 'mvn clean install -DskipTests=true'
-        }  
 }   
