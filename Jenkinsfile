@@ -2,7 +2,7 @@
     def config = [:]
 node() {
     checkout scm
-    def defaultconfigtxt =libraryResource 'spring/DefaultConfiguration'
+    def defaultconfigtxt = libraryResource '/spring/DefaultConfiguration'
     def defaultconfig = readProperties text: defaultconfigtxt
     echo '${defaultconfig}'
     stages {
