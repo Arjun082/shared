@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+ansicolor('xterm')
 def config = [:]
 //def defaultconfigtxt = libraryResource '/spring/DefaultConfiguration'
 
