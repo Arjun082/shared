@@ -1,9 +1,8 @@
 #!/usr/bin/env groovy
     def config = [:]
 node() {
-    checkout scm
-    def defaultconfigtxt = libraryResource '/spring/DefaultConfiguration'
-    def defaultconfig = readProperties text: defaultconfigtxt
+#   def defaultconfigtxt = libraryResource '/spring/DefaultConfiguration'
+    def defaultconfig = readProperties file: 'resources/spring/DefaultConfiguration'
     echo '${defaultconfig}'
     stages {
         stage('Back-end') {
