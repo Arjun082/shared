@@ -4,8 +4,8 @@ node() {
    //def defaultconfigtxt = libraryResource '/spring/DefaultConfiguration'
     def defaultconfig = readProperties file: 'resources/spring/DefaultConfiguration'
     echo "${defaultconfig}"
-    echo "${config.GIT_URL}"
     stage('Back-end') {
                 git url: "https://github.com/safirh/petclinic.git"
+                echo "${config.GIT_URL}"
         }
 }   
