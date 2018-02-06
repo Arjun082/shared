@@ -1,9 +1,7 @@
-pipeline {
+#!/usr/bin/env groovy
     def config = [:]
-    agent any
-    tools {
-    maven 'maven'
-  }
+node() {
+    checkout scm
     def defaultconfigtxt =libraryResource 'spring/DefaultConfiguration'
     def defaultconfig = readProperties text: defaultconfigtxt
     echo '${defaultconfig}'
@@ -19,5 +17,4 @@ pipeline {
                 
             }
         }  
-    }
 }
