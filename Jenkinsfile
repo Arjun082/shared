@@ -4,8 +4,7 @@ node() {
    //def defaultconfigtxt = libraryResource '/spring/DefaultConfiguration'
     def defaultconfig = readProperties file: 'resources/spring/DefaultConfiguration'
     echo '${defaultconfig}'
-    stages {
-        stage('Back-end') {
+    stage('Back-end') {
             steps {
                 git '${config.GIT_URL}'
             }
@@ -16,5 +15,4 @@ node() {
                 
             }
         }  
-     }
 }   
