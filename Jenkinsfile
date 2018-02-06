@@ -1,12 +1,16 @@
-#!/usr/bin/env groovy
-def config = [:]
-node() {
-    stage('Back-end') {
-        checkout scm
-       // def defaultconfigtxt = libraryResource '/spring/DefaultConfiguration'
-        def defaultconfig = readProperties file: 'resources/spring/DefaultConfiguration'
-        config = readproperties defaults: defaultconfig, file: "resources/spring/test"
-        git url: "https://github.com/safirh/petclinic.git"
-        echo "${config.ENV}"
-        }
-}   
+Library("github.com/Arjun082/shared@master")_
+
+node {
+    stage('read properties') {
+        def defaultconfigtxt = libraryResource 'spring/test'
+        def defaultconfig = readProperties text: defaultconfigtxt
+        echo "${defaultconfig.ENV}"
+    }
+    stage('Checkout') {
+        git(
+           url: "${defaultconfig.GIT_URL}",
+           branch: "${defaultconfig.MASTER}"
+        )
+    }
+    
+} 
