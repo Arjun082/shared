@@ -1,3 +1,5 @@
+anand
+marthanda
 ENV = dev
 GIT_URL = https://github.com/safirh/petclinic.git
 BRANCH = master
